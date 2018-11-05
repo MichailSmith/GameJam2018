@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
@@ -24,7 +24,8 @@
     "babel-preset-latest": "^6.24.1",
     "npm": "^6.4.1",
     "phaser": "^3.15.1",
-    "webpack": "^4.25.1"
+    "webpack": "^4.25.1",
+    "webpack-dev-server": "^3.1.10"
   },
   "devDependencies": {
     "webpack-cli": "^3.1.2"
