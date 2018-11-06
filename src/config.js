@@ -1,4 +1,4 @@
-export default {
+export default Phaser => ({
     type: Phaser.AUTO,
     width: 800,
     height: 600,
@@ -7,4 +7,4 @@ export default {
         create: ()=>undefined,
         update: ()=>undefined
     }
-}
+});
