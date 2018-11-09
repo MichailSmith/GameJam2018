@@ -9,7 +9,7 @@ export default Phaser => ({
     scene: {
         preload: function(){
             const self = this;
-            images.forEach(({name, path, })=>self.load.image(name, path))
+            images.forEach(({name, path })=>self.load.image(name, path))
             spritesheets.forEach(({name, path, dimensions}) => 
                 self.load.spritesheet(name, path, {...DEFAULT_IMAGE_DIMENSIONS, ...dimensions}));
         },
