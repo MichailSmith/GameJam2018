@@ -1,3 +1,4 @@
+import componentCreator from './componentCreator';
 const DEFAULT_DRAW = {
     asset: 'missing',
     size: {
@@ -6,10 +7,4 @@ const DEFAULT_DRAW = {
     }
 };
 
-export default (entity = {}, draw = {}) =>({
-    ...entity,
-    draw: {
-        ...DEFAULT_DRAW,
-        ...draw
-    }
-});
+export default componentCreator('draw', DEFAULT_DRAW);
