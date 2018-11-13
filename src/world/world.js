@@ -16,12 +16,10 @@ const createEntity = (entity) => {
 
 export const addEntity = (entity) =>{
     if(entity.id){
-        const existingEntity = world.entities.find(e => e.id === entity.id);
-        if(existingEntity){
-
-        }
+        throw {err: 'entiy.id should not be defined'};
+    } else {
+        world.entities = world.entities.concat(createEntity(entity));
     }
-    world.entities = world.entities.concat(createEntity(entity));
 };
 
 export const removeEntity = (entityId) => {
