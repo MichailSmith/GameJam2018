@@ -14,7 +14,7 @@ const createEntity = (entity) => {
     };
 };
 
-export const addEntity = (entity) =>{
+export const addEntity = (entity) => {
     if(entity.id){
         throw {err: 'entiy.id should not be defined'};
     } else {
