@@ -1,6 +1,6 @@
 const world = {
-    entities = [],
-    _currentId = 0
+    entities: [],
+    _currentId: 0
 };
 
 const createEntity = (entity) => {
@@ -16,7 +16,7 @@ const createEntity = (entity) => {
 
 export const addEntity = (entity) => {
     if(entity.id){
-        throw {err: 'entiy.id should not be defined'};
+        throw new Error('entiy.id should not be defined');
     } else {
         world.entities = world.entities.concat(createEntity(entity));
     }
