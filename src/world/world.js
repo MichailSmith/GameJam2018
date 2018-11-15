@@ -1,7 +1,9 @@
-const world = {
+const DEFAULT_WORLD = {
     entities: [],
     _currentId: 0
 };
+
+let world = {...DEFAULT_WORLD};
 
 const createEntity = (entity) => {
     if(entity.id){
@@ -13,6 +15,8 @@ const createEntity = (entity) => {
         id: world._currentId
     };
 };
+
+export const resetWorld = (newWorld)=> world = {...DEFAULT_WORLD, ...newWorld};
 
 export const addEntity = (entity) => {
     if(entity.id){
