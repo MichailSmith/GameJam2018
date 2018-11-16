@@ -6,9 +6,6 @@ const DEFAULT_WORLD = {
 let world = {...DEFAULT_WORLD};
 
 const createEntity = (entity) => {
-    if(entity.id){
-        return entity;
-    }
     world._currentId++;
     return {
         ...entity,
