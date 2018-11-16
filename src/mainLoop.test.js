@@ -65,7 +65,7 @@ describe('update', ()=>{
                 update(defaultWorld, systems)();
                 expect(systemFn).toBeCalledTimes(4);
             });
-            it('passes world, entity, index to system update', ()=>{
+            it('passes world, entity, index, and this to system update', ()=>{
                 const systemFn = jest.fn();
                 const systems = [
                     {
@@ -73,12 +73,12 @@ describe('update', ()=>{
                         update: systemFn
                     }
                 ];
-                update(defaultWorld, systems)();
+                update(defaultWorld, systems).apply('this');
                 expect(systemFn).toBeCalledWith({
                     id: 2,
                     component1: 'bar',
                     component2: 'bas'
-                }, defaultWorld, 0);
+                }, defaultWorld, 'this', 0);
             })
         });
     });

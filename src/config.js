@@ -1,4 +1,7 @@
 import { images, spritesheets } from './assets';
+import { update } from './mainLoop';
+import systems from './systems';
+import * as world from './world';
 
 const DEFAULT_IMAGE_DIMENSIONS = { frameWidth: 32, frameHeight: 32 };
 
@@ -14,6 +17,9 @@ export default Phaser => ({
                 self.load.spritesheet(name, path, {...DEFAULT_IMAGE_DIMENSIONS, ...dimensions}));
         },
         create: ()=>undefined,
-        update: ()=>undefined
+        update: function(){
+            update(world, systems).apply(this);
+        }
+
     }
 });
