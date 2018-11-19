@@ -13,7 +13,10 @@ const createEntity = (entity) => {
     };
 };
 
-export const resetWorld = (newWorld)=> world = {...DEFAULT_WORLD, ...newWorld};
+export const resetWorld = (newWorld)=> {
+    world = {...DEFAULT_WORLD, ...newWorld};
+    world._currentId = world.entities.reduce((prev, {id}) => Math.max(prev, id), 0);
+};
 
 export const addEntity = (entity) => {
     if(entity.id){

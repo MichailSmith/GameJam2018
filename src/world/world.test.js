@@ -2,6 +2,36 @@ import * as world from './world';
 
 describe('world', ()=>{
     afterEach(()=>world.resetWorld());
+    
+    describe('resetWorld', ()=>{
+        describe('with no argument', ()=>{
+            it('resets entities to default', ()=>{
+                world.addEntity({});
+                world.resetWorld();
+                expect(world.getEntities()).toEqual([]);
+            });
+            it('resets next entity id to 1', ()=>{
+                world.addEntity({});
+                world.resetWorld({});
+                world.addEntity({});
+                expect(world.getEntities()).toEqual([{id: 1}]);
+            });
+        });
+        describe('with entities', ()=>{
+            it('sets entities to provided list', ()=>{
+                world.addEntity({});
+                world.resetWorld({entities: [{id:2}]});
+                expect(world.getEntities()).toEqual([{id:2}]);
+            });
+            it('resets the next entity id based on new entities', ()=>{
+                world.addEntity({});
+                world.resetWorld({entities: [{id: 5}]});
+                world.addEntity({});
+                expect(world.getEntities()).toEqual([{id: 5}, {id: 6}])
+            })
+        })
+    });
+
     describe('addEntity', ()=>{
         describe('with id', ()=>{
             it('throws error', ()=>{
@@ -96,5 +126,5 @@ describe('world', ()=>{
                 expect(world.getEntities()).toEqual(entities);
             })
         })
-    })
+    });
 })
